@@ -26,16 +26,30 @@
         '<circle r="27" fill="none" stroke="#0007" stroke-width="3"/><circle r="22" fill="none" stroke="#fff3" stroke-width="1"/>';
     });
   }
-  function buildPipes() {
-    $$('.pipes').forEach(s => {
-      let h = '';
-      for (let k = 0; k < 5; k++) {
-        const y = 50 + 100 * k, d = `M0 ${y}C130 ${y} 150 250 300 250`;
-        h += `<g><path class="pb" d="${d}"/><path class="ph" d="${d}"/><path class="pf" d="${d}"/></g>`;
-      }
-      s.innerHTML = h;
-    });
-  }
+  
+function buildPipes() {
+  $$('.pipes').forEach(s => {
+    let h = '';
+
+    for (let k = 0; k < 5; k++) {
+      const y = 50 + 100 * k;
+      const endY = 206 + 22 * k;
+
+      // Каждая труба подходит к системе на своей высоте.
+      // Порядок линий сохраняется, поэтому они не пересекаются.
+      const d = `M0 ${y} C80 ${y} 180 ${endY} 300 ${endY}`;
+
+      h += `<g>
+        <path class="pb" d="${d}"/>
+        <path class="ph" d="${d}"/>
+        <path class="pf" d="${d}"/>
+      </g>`;
+    }
+
+    s.innerHTML = h;
+  });
+}
+
   function buildSpiders() {
     const leg = (i, r) => `<path class="lg" style="--i:${i};--r:${r}deg" d="M0 0L24-18L42 4"/>`;
     const side = o => leg(o, -70) + leg(o + 1, -30) + leg(o + 2, 10) + leg(o + 3, 50);

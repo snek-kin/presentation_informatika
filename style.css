@@ -117,19 +117,215 @@ button:focus-visible,.tilt:focus-visible{outline:2px solid var(--tq);outline-off
 .mod:hover .more,.mod:focus .more{max-height:90px;opacity:1}
 
 /* ===== 7. Слайд 4: трубопроводы ===== */
-.pipegrid{display:grid;grid-template-columns:minmax(220px,1.2fr) minmax(90px,.8fr) 130px;width:100%;height:min(46vh,380px);align-items:stretch}
-.srcs{display:grid;grid-template-rows:repeat(5,1fr);gap:0;align-items:center}
-.src{cursor:pointer;font-weight:700;font-size:.95em;padding:8px 14px;margin:5px 0;transition:border-color .2s,box-shadow .2s,transform .2s}
-.src:hover,.src:focus-visible{border-color:var(--rd);box-shadow:0 0 22px rgba(217,75,61,.6),inset 0 0 0 4px #1a140d;transform:translateX(6px)}
-.pipes{width:100%;height:100%;overflow:visible}
-.pipes path{fill:none;vector-effect:non-scaling-stroke}
-.pb{stroke:#7a4325;stroke-width:12}.ph{stroke:rgba(255,220,160,.4);stroke-width:3}
-.pf{stroke:var(--rd);stroke-width:5;stroke-dasharray:10 36;opacity:.25;animation:flow2 1.6s linear infinite}
-.on .pf{opacity:1;filter:drop-shadow(0 0 5px var(--rd))}.on .pb{stroke:#a84a2a}
-@keyframes flow2{to{stroke-dashoffset:-46}}
-.sink{display:grid;place-items:center}
-.sink .core{position:relative;left:0;top:0;margin:0}
-.why{min-height:3.2em;width:100%;text-align:center;color:var(--cr);border-color:var(--rd)}
+
+/* ===== 7. Слайд 4: трубопроводы — исправленная версия ===== */
+#s4 .wrap {
+  width: min(1100px, 100%);
+  gap: 1.5vh;
+}
+
+#s4 h2 {
+  flex: none;
+  max-width: 100%;
+}
+
+#s4 .pipegrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(90px, .8fr) 110px;
+  gap: 8px;
+  width: 100%;
+  height: min(42vh, 360px);
+  min-height: 260px;
+  align-items: stretch;
+}
+
+#s4 .srcs {
+  display: grid;
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+  gap: 5px;
+  min-width: 0;
+  min-height: 0;
+  align-items: stretch;
+}
+
+#s4 .src {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 7px 10px;
+  font-size: clamp(.78rem, 1.15vw, 1rem);
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  text-align: left;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+
+#s4 .src:hover,
+#s4 .src:focus-visible {
+  position: relative;
+  z-index: 2;
+  border-color: var(--rd);
+  box-shadow: 0 0 18px rgba(217, 75, 61, .5);
+  transform: translateX(3px);
+}
+
+#s4 .pipes {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  overflow: visible;
+}
+
+#s4 .pipes path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+#s4 .pb {
+  stroke: #7a4325;
+  stroke-width: 10;
+}
+
+#s4 .ph {
+  stroke: rgba(255, 220, 160, .5);
+  stroke-width: 2.5;
+}
+
+#s4 .pf {
+  stroke: var(--rd);
+  stroke-width: 4;
+  stroke-dasharray: 10 36;
+  opacity: .25;
+  animation: flow2 1.6s linear infinite;
+}
+
+#s4 .on .pf {
+  opacity: 1;
+  filter: drop-shadow(0 0 5px var(--rd));
+}
+
+#s4 .on .pb {
+  stroke: #a84a2a;
+}
+
+#s4 .sink {
+  display: grid;
+  min-width: 0;
+  place-items: center;
+}
+
+#s4 .sink .core {
+  position: relative;
+  left: auto;
+  top: auto;
+  margin: 0;
+  width: clamp(58px, 7vw, 84px);
+  height: clamp(58px, 7vw, 84px);
+  font-size: .58rem;
+}
+
+#s4 .why {
+  flex: none;
+  width: 100%;
+  min-height: 0;
+  padding: 12px 18px;
+  border-color: var(--rd);
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+@keyframes flow2 {
+  to {
+    stroke-dashoffset: -46;
+  }
+}
+
+/* Узкие экраны */
+@media (max-width: 900px) {
+  #s4 .pipegrid {
+    grid-template-columns: minmax(0, 1fr) 48px 66px;
+    gap: 4px;
+    height: min(42vh, 340px);
+    min-height: 250px;
+  }
+
+  #s4 .src {
+    padding: 6px 8px;
+    font-size: clamp(.75rem, 1.5vw, .95rem);
+  }
+
+  #s4 .sink .core {
+    width: 58px;
+    height: 58px;
+    font-size: .5rem;
+  }
+}
+
+/* Компактная компоновка для небольших экранов */
+@media (max-width: 600px) {
+  #s4 .wrap {
+    gap: 1.2vh;
+  }
+
+  #s4 .pipegrid {
+    grid-template-columns: minmax(0, 1fr) 34px 48px;
+    gap: 3px;
+    height: min(40vh, 300px);
+    min-height: 220px;
+  }
+
+  #s4 .src {
+    padding: 5px 6px;
+    font-size: .76rem;
+    line-height: 1.05;
+    border-width: 1px;
+  }
+
+  #s4 .pb {
+    stroke-width: 7;
+  }
+
+  #s4 .ph {
+    stroke-width: 2;
+  }
+
+  #s4 .pf {
+    stroke-width: 3;
+  }
+
+  #s4 .sink .core {
+    width: 44px;
+    height: 44px;
+    font-size: .43rem;
+  }
+
+  #s4 .why {
+    padding: 8px 10px;
+    font-size: .82rem;
+    line-height: 1.2;
+  }
+}
+
+/* Низкие окна браузера */
+@media (max-height: 700px) {
+  #s4 .wrap {
+    gap: 1vh;
+  }
+
+  #s4 .pipegrid {
+    height: min(38vh, 290px);
+    min-height: 210px;
+  }
+
+  #s4 .why {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: .85rem;
+  }
+}
 
 /* ===== 8. Слайд 5: аварийная панель ===== */
 .hrow{display:flex;align-items:center;gap:20px}.brk{position:relative}
