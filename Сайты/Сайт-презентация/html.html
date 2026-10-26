@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Компьютерные вирусы — Steampunk Cyber Laboratory</title>
+<link rel="stylesheet" href="style.css">
+<script src="javascript.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="brass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9CF8E"/><stop offset=".5" stop-color="#B58A45"/><stop offset="1" stop-color="#6b4a22"/></linearGradient></defs></svg>
+
+<!-- Постоянный фон: чертёж, шестерни, трубы, провода -->
+<div id="bg" aria-hidden="true">
+  <div class="layer blue" data-d="8"><svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="#D7B56D"><circle cx="400" cy="250" r="190"/><circle cx="400" cy="250" r="130" stroke-dasharray="4 6"/><path d="M0 250H800M400 0V500M110 40L690 460"/><circle cx="140" cy="400" r="70"/><path d="M640 70h120v64H640z"/></g><text x="650" y="92" fill="#D7B56D" font-size="10" font-family="monospace">FIG. 026 · SCALE 1:4</text></svg></div>
+  <svg class="gear bgh" data-t="14" style="--sz:360px;--sp:60s;left:-120px;bottom:-120px"></svg>
+  <svg class="gear rev bgh" data-t="10" style="--sz:200px;--sp:34s;left:150px;bottom:-70px"></svg>
+  <svg class="gear bgh" data-t="16" style="--sz:300px;--sp:70s;right:-100px;top:-90px"></svg>
+  <svg class="gear rev bgh" data-t="9" style="--sz:130px;--sp:22s;right:140px;top:60px"></svg>
+  <i class="pipe v" style="left:8px"></i><i class="pipe v" style="right:8px"></i><i class="pipe h"></i>
+  <i class="vent" style="left:8px;top:32%"></i><i class="vent" style="right:8px;top:58%"></i>
+  <svg class="wires layer" data-d="14" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 14C25 14 20 30 45 30S70 8 100 16"/><path class="wp" d="M0 14C25 14 20 30 45 30S70 8 100 16"/><path d="M0 90C30 90 40 70 60 78S85 95 100 88"/><path class="wp" style="animation-delay:-2s" d="M0 90C30 90 40 70 60 78S85 95 100 88"/></svg>
+</div>
+<div id="lamp" aria-hidden="true"></div>
+<svg id="spider" class="spd" viewBox="-60 -50 120 100" aria-hidden="true"></svg>
+<header class="hud"><span><i class="lamp g"></i><i class="lamp a"></i>SYSTEM STATUS: ONLINE</span><span>UNIT 026 · SECURITY PROTOCOL</span></header>
+
+<main id="deck">
+
+<!-- 1. Титульный -->
+<section class="slide" id="s1" aria-label="Титульный слайд">
+  <div class="machine rv" style="--d:.3">
+    <svg class="ln" viewBox="0 0 316 206"><rect x="0" y="0" width="316" height="206" pathLength="1"/></svg>
+    <i class="lid"></i><i class="case"></i>
+    <svg class="gear" data-t="12" style="--sz:84px;--sp:12s;left:14px;top:20px"></svg>
+    <svg class="gear rev" data-t="8" style="--sz:58px;--sp:8s;left:84px;bottom:12px"></svg>
+    <svg class="gear rev" data-t="10" style="--sz:70px;--sp:10s;right:14px;top:18px"></svg>
+    <div class="core"><b>VIRUS.EXE</b></div>
+    <i class="scr" style="left:10px;bottom:10px">LOAD 87%</i><i class="scr" style="right:10px;bottom:10px">THREAT: HIGH</i>
+    <i class="lamp r" style="position:absolute;left:46%;top:-38px"></i><i class="lamp a" style="position:absolute;left:52%;top:-38px"></i>
+  </div>
+  <h1 class="rv" style="--d:2.1">КОМПЬЮТЕРНЫЕ ВИРУСЫ</h1>
+  <p class="sub rv" style="--d:2.6">Скрытые угрозы цифрового мира</p>
+  <footer class="by rv" style="--d:3"><span>Автор: Ерешеев Алинур</span><span>Группа: ПИ-2-26</span></footer>
+</section>
+
+<!-- 2. Что такое вирус -->
+<section class="slide" id="s2" aria-label="Что такое компьютерный вирус">
+  <div class="wrap">
+    <h2 class="rv">Что такое компьютерный вирус?</h2>
+    <div class="two">
+      <div class="stack">
+        <p class="blk pnl rv" style="--d:.3"><b>Вредоносная программа.</b> Способна внедряться в другие файлы или программы.</p>
+        <p class="blk pnl rv" style="--d:.5"><b>Распространяется</b> при запуске или передаче заражённых файлов.</p>
+        <p class="blk pnl rv" style="--d:.7"><b>Выполняет нежелательные действия:</b> от помех в работе до порчи данных.</p>
+      </div>
+      <div class="fig rv" style="--d:.5">
+        <svg class="gear" data-t="14" style="--sz:130px;--sp:18s;left:20px;top:14px"></svg>
+        <svg class="gear rev" data-t="10" style="--sz:96px;--sp:13s;left:128px;top:70px"></svg>
+        <svg class="spd par crawl" viewBox="-60 -50 120 100"></svg>
+      </div>
+    </div>
+    <ol class="flow rv" style="--d:1"><li>Заражённый файл</li><li>Запуск</li><li>Вредоносное действие</li><li>Возможное распространение</li></ol>
+    <p class="note rv" style="--d:1.2">Это упрощённая схема классического вируса. Другие виды вредоносных программ могут действовать иначе.</p>
+  </div>
+</section>
+
+<!-- 3. Виды -->
+<section class="slide" id="s3" aria-label="Виды вредоносных программ">
+  <div class="wrap">
+    <h2 class="rv">Основные виды вредоносных программ</h2>
+    <div class="mods">
+      <article class="mod tilt pnl rv" style="--d:.2" tabindex="0"><span class="ico">📄</span><h3>Файловые вирусы</h3><p>Заражают файлы или программы.</p><em class="more">Встраиваются в файлы и срабатывают при их запуске.</em></article>
+      <article class="mod tilt pnl rv" style="--d:.35" tabindex="0"><span class="ico">🪱</span><h3>Черви</h3><p>Распространяются по сетям без обязательного внедрения в другой файл.</p><em class="more">Могут быстро расходиться между уязвимыми устройствами.</em></article>
+      <article class="mod tilt pnl rv" style="--d:.5" tabindex="0"><span class="ico">🐴</span><h3>Трояны</h3><p>Маскируются под легитимные программы или файлы.</p><em class="more">Рассчитаны на то, что пользователь запустит их сам.</em></article>
+      <article class="mod tilt pnl rv" style="--d:.65" tabindex="0"><span class="ico">🔒</span><h3>Вымогатели</h3><p>Блокируют доступ к данным или шифруют их, требуя выкуп.</p><em class="more">Платёж не гарантирует возврат данных.</em></article>
+      <article class="mod tilt pnl rv" style="--d:.8" tabindex="0"><span class="ico">🕵️</span><h3>Шпионское ПО</h3><p>Собирает информацию о пользователе без разрешения.</p><em class="more">Может перехватывать пароли и данные об активности.</em></article>
+    </div>
+    <p class="note rv" style="--d:1">Это разные категории. «Вирус» — лишь один из видов, а не синоним любой вредоносной программы. Наведите курсор на модуль.</p>
+  </div>
+</section>
+
+<!-- 4. Заражение -->
+<section class="slide" id="s4" aria-label="Как происходит заражение">
+  <div class="wrap">
+    <h2 class="rv">Как происходит заражение?</h2>
+    <div class="pipegrid rv" style="--d:.3">
+      <div class="srcs">
+        <button class="src pnl" data-p="0" data-t="Файл из письма может содержать вредоносный код. Открывать вложения без проверки опасно.">📧 Вложения в письмах</button>
+        <button class="src pnl" data-p="1" data-t="Копии настоящих сайтов выманивают данные или предлагают скачать вредоносный файл.">🌐 Поддельные сайты и ссылки</button>
+        <button class="src pnl" data-p="2" data-t="Взломанные и неофициальные версии программ могут скрывать вредоносный код.">⬇️ Ненадёжные источники</button>
+        <button class="src pnl" data-p="3" data-t="Заражённая флешка опасна при открытии файлов, которые на ней хранятся.">💾 USB-накопители</button>
+        <button class="src pnl" data-p="4" data-t="Часть атак использует ошибки в программах и иногда не требует действий пользователя.">⚠️ Уязвимости, нет обновлений</button>
+      </div>
+      <svg class="pipes" viewBox="0 0 300 500" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <div class="sink"><div class="core"><b>SYSTEM</b></div></div>
+    </div>
+    <p id="why" class="pnl why rv" style="--d:.6">Заражение не всегда начинается с открытия файла: часть атак использует уязвимости программного обеспечения.</p>
+  </div>
+</section>
+
+<!-- 5. Опасность -->
+<section class="slide" id="s5" aria-label="Чем опасны вирусы">
+  <div class="wrap">
+    <div class="hrow"><h2 class="rv">Чем опасны компьютерные вирусы?</h2><svg class="gear brk" data-t="12" style="--sz:80px"></svg></div>
+    <div class="alarms">
+      <div class="alm pnl rv" style="--d:.4"><div class="sig"><i class="lamp g"></i><i class="lamp r"></i></div><h3>Данные</h3><div class="gg"><i></i></div><p>Потеря или повреждение данных</p></div>
+      <div class="alm pnl rv" style="--d:.6"><div class="sig"><i class="lamp g"></i><i class="lamp r"></i></div><h3>Учётные данные</h3><div class="gg"><i></i></div><p>Кража личной информации и паролей</p></div>
+      <div class="alm pnl rv" style="--d:.8"><div class="sig"><i class="lamp g"></i><i class="lamp r"></i></div><h3>Финансы</h3><div class="gg"><i></i></div><p>Финансовые потери</p></div>
+      <div class="alm pnl rv" style="--d:1"><div class="sig"><i class="lamp g"></i><i class="lamp r"></i></div><h3>Работа систем</h3><div class="gg"><i></i></div><p>Нарушение работы компьютеров и целых организаций</p></div>
+    </div>
+    <div class="thr rv" style="--d:1.2"><span>THREAT LEVEL</span><i></i></div>
+  </div>
+</section>
+
+<!-- 6. Примеры -->
+<section class="slide" id="s6" aria-label="Известные примеры">
+  <div class="wrap">
+    <h2 class="rv">Архив лаборатории: известные случаи</h2>
+    <div class="docs">
+      <button class="doss tilt pnl rv" style="--d:.3" aria-expanded="false"><span class="stamp">CASE FILE</span><span class="ser">№ 2000-ILY</span><h3>ILOVEYOU</h3><dl><dt>Год</dt><dd>2000</dd><dt>Тип</dt><dd>Вредоносный скрипт, распространялся по e-mail</dd><dt>Итог</dt><dd>Массовое заражение через социальную инженерию</dd></dl><em class="dmore">Привлекательное письмо побуждало пользователя самому открыть вложение.</em></button>
+      <button class="doss tilt pnl rv" style="--d:.5" aria-expanded="false"><span class="stamp">CASE FILE</span><span class="ser">№ 2017-WCRY</span><h3>WannaCry</h3><dl><dt>Год</dt><dd>2017</dd><dt>Тип</dt><dd>Программа-вымогатель</dd><dt>Итог</dt><dd>Масштабные нарушения работы организаций</dd></dl><em class="dmore">Использовала уязвимость в Windows. Обновление безопасности закрывало её.</em></button>
+      <button class="doss tilt pnl rv" style="--d:.7" aria-expanded="false"><span class="stamp">CASE FILE</span><span class="ser">№ 2010-STX</span><h3>Stuxnet</h3><dl><dt>Период</dt><dd>Обнаружен около 2010 года</dd><dt>Тип</dt><dd>Сложный компьютерный червь</dd><dt>Итог</dt><dd>Воздействие на промышленные системы управления</dd></dl><em class="dmore">Был нацелен на конкретные промышленные системы, а не на обычных пользователей.</em></button>
+    </div>
+    <p class="note rv" style="--d:1">Нажмите на досье, чтобы раскрыть дополнительную информацию.</p>
+  </div>
+</section>
+
+<!-- 7. Защита -->
+<section class="slide" id="s7" aria-label="Как защитить компьютер">
+  <div class="wrap">
+    <h2 class="rv">Панель запуска защиты</h2>
+    <div class="two">
+      <ul class="pnl bank rv" style="--d:.2">
+        <li class="sw" style="--d:.8"><i class="lamp"></i><b class="lv"></b>Обновлять систему и программы</li>
+        <li class="sw" style="--d:1.3"><i class="lamp"></i><b class="lv"></b>Уникальные пароли и многофакторная аутентификация</li>
+        <li class="sw" style="--d:1.8"><i class="lamp"></i><b class="lv"></b>Скачивать программы из проверенных источников</li>
+        <li class="sw" style="--d:2.3"><i class="lamp"></i><b class="lv"></b>Не открывать подозрительные вложения и ссылки</li>
+        <li class="sw" style="--d:2.8"><i class="lamp"></i><b class="lv"></b>Использовать актуальные средства защиты</li>
+        <li class="sw" style="--d:3.3"><i class="lamp"></i><b class="lv"></b>Создавать резервные копии важных файлов</li>
+      </ul>
+      <div class="fig2 rv" style="--d:.5"><div class="machine"><i class="lid"></i><i class="case"></i>
+        <svg class="gear" data-t="12" style="--sz:70px;--sp:12s;left:14px;top:16px"></svg><svg class="gear rev" data-t="9" style="--sz:56px;--sp:9s;right:16px;bottom:12px"></svg>
+        <div class="core ok"><b>SECURE</b></div><i class="shield"></i></div></div>
+    </div>
+    <p class="note rv" style="--d:1">Сочетание мер значительно снижает риск, но полностью его не устраняет.</p>
+  </div>
+</section>
+
+<!-- 8. При заражении -->
+<section class="slide" id="s8" aria-label="Что делать при заражении">
+  <div class="wrap">
+    <h2 class="rv"><i class="lamp r"></i>Аварийная инструкция</h2>
+    <ol class="steps">
+      <li class="stp pnl" style="--d:.5"><b>1</b>Отключить устройство от сети, если есть признаки активного распространения или сетевой атаки.</li>
+      <li class="stp pnl" style="--d:1.2"><b>2</b>Не вводить пароли и не подключать дополнительные носители без необходимости.</li>
+      <li class="stp pnl" style="--d:1.9"><b>3</b>Запустить проверку актуальным средством защиты или обратиться к специалисту.</li>
+      <li class="stp pnl" style="--d:2.6"><b>4</b>При подозрении на вымогателя не удалять файлы поспешно и не расшифровывать данные неизвестными инструментами.</li>
+      <li class="stp pnl" style="--d:3.3"><b>5</b>После устранения угрозы восстановить данные из проверенных резервных копий.</li>
+    </ol>
+    <p class="note pnl rv" style="--d:1">Если заражено рабочее или учебное устройство организации, сообщите ответственному специалисту и следуйте установленному порядку реагирования.</p>
+  </div>
+</section>
+
+<!-- 9. Финал -->
+<section class="slide" id="s9" aria-label="Финальный слайд">
+  <div class="machine rv" style="--d:.2"><i class="lid"></i><i class="case"></i>
+    <svg class="gear" data-t="12" style="--sz:84px;--sp:12s;left:14px;top:20px"></svg><svg class="gear rev" data-t="8" style="--sz:58px;--sp:8s;right:16px;top:20px"></svg>
+    <div class="core ok"><b>STABLE</b></div><i class="scr" style="left:10px;bottom:10px">PROTECTION ON</i><i class="scr" style="right:10px;bottom:10px">THREAT: LOW</i></div>
+  <h1 class="rv" style="--d:.5">СИСТЕМА ЗАЩИЩЕНА?</h1>
+  <p class="sub rv" style="--d:.9">Безопасность начинается с осознанных действий</p>
+  <p class="rv" style="--d:1.2">Обновляйте программы. Проверяйте источники. Создавайте резервные копии.</p>
+  <button class="lever rv" style="--d:1.5" data-go="0">↻ СМОТРЕТЬ СНАЧАЛА</button>
+  <small class="end rv" style="--d:1.8">END OF PRESENTATION</small>
+</section>
+</main>
+
+<nav class="ctl" aria-label="Навигация по слайдам">
+  <button type="button" data-nav="-1" aria-label="Назад">◀ НАЗАД</button>
+  <div class="prog"><i id="bar"></i></div><output id="cnt">01 / 09</output>
+  <button type="button" data-nav="1" aria-label="Далее">ДАЛЕЕ ▶</button>
+</nav>
+
+<!-- Переходы: металлические заслонки и сканирующая линия -->
+<div class="tr" id="tr" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="sl"></i></div>
+</body>
+</html>
